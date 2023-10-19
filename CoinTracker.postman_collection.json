@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "0ad7746f-6f71-4658-be06-2fb953d8935f",
+		"name": "CoinTracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "wallets",
+			"item": [
+				{
+					"name": "Sync Wallet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sync_from\": \"{{sync_from}}\",\n    \"chain\": \"BTC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/wallets/{{wallet_address}}/sync",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								"{{wallet_address}}",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Wallet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"{{wallet_address}}\",\n    \"chain\": \"BTC\",\n    \"alias\": \"Test wallet\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/wallets/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Wallets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/wallets/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Wallet",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/wallets/{{wallet_address}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								"{{wallet_address}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Wallet Balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/wallets/{{wallet_address}}/{{chain}}/balance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								"{{wallet_address}}",
+								"{{chain}}",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/wallets/{{wallet_address}}/{{chain}}/transactions?page={{page}}&pageSize={{page_size}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								"{{wallet_address}}",
+								"{{chain}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{{page_size}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
